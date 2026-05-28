@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ayurmitra">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AyurMitra">
+
+        <activity android:name=".activities.SplashActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activities.HealthAssessmentActivity" />
+        <activity android:name=".activities.SymptomsActivity" />
+        <activity android:name=".activities.ResultActivity" />
+        <activity android:name=".activities.MeditationActivity" />
+        <activity android:name=".activities.HerbActivity" />
+        <activity android:name=".activities.HerbDetailActivity" />
+        <activity android:name=".activities.DoshaActivity" />
+        <activity android:name=".activities.DoshaDetailActivity" />
+        <activity android:name=".activities.ExpertsActivity" />
+        <activity android:name=".activities.ExpertDetailActivity" />
+        <activity android:name=".activities.WebViewActivity" />
+        <activity android:name=".activities.BookingActivity" />
+        <activity android:name=".activities.YogaActivity" />
+        <activity android:name=".activities.YogaDetailActivity" />
+        <activity android:name=".activities.VideoActivity" />
+        <activity android:name=".activities.ScoreHistoryActivity" />
+
+        <receiver android:name=".receivers.AlarmReceiver" />
+
+    </application>
+
+</manifest>

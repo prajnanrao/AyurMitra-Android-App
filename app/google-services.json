@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "915188519829",
+    "project_id": "ayurmitra-bda7b",
+    "firebase_url": "https://ayurmitra-bda7b-default-rtdb.firebaseio.com",
+    "storage_bucket": "ayurmitra-bda7b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915188519829:android:bf62149ec47a7365991c9c",
+        "android_client_info": {
+          "package_name": "com.example.ayurmitra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2rolyFekGnMAwkwL8u74KM_htuKqwbSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvBreakdownTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score Breakdown"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTotalScoreLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Health Score (max 100) is calculated based on 7 essential Ayurvedic wellness pillars."
+            android:layout_marginBottom="24dp"
+            android:textColor="#666666"/>
+
+        <!-- 1. WATER -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="💧 Hydration" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvWaterScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 20 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressWater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:max="20"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Drink 2-4L daily for optimal metabolism." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 2. ACTIVITY -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🏃 Physical Movement" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvActivityScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 20 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:max="20"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30+ minutes of daily activity to balance Agni." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 3. SLEEP -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🌙 Restful Sleep" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvSleepScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 15 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:max="15"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6-9 hours for tissue rejuvenation (Ojas)." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 4. DIET -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🍎 Fresh Nutrition" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvNutritionScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 15 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressNutrition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:max="15"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2+ servings of fresh fruits/veggies." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 5. STRESS -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🧘 Mental Peace" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvStressScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 10 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressStress"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginBottom="4dp"
+                android:max="10"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lower stress preserves vital energy (Prana)." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 6. PURITY (JUNK) -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🍟 Dietary Purity" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvJunkScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 10 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressJunk"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginBottom="4dp"
+                android:max="10"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Minimizing junk prevents toxin (Ama) buildup." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <!-- 7. BMI -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="24dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="⚖️ Body Composition" android:textStyle="bold" android:textColor="@color/black"/>
+                <TextView android:id="@+id/tvBmiScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- / 10 pts" android:textColor="#2E7D32" android:textStyle="bold"/>
+            </LinearLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBmi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:max="10"
+                android:progress="0"
+                app:indicatorColor="#2E7D32"
+                app:trackColor="#E8F5E9"
+                app:trackCornerRadius="4dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A healthy BMI indicates physical equilibrium." android:textSize="12sp" android:textColor="#666666"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Improve Your Score 🚀"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Increase hydration to 3L daily\n• Aim for 7-8 hours of sleep\n• Add 15 more minutes of movement\n• Replace 1 junk snack with fruit"
+            android:textColor="#666666"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCloseBreakdown"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Close"
+            android:textColor="@color/white"
+            app:backgroundTint="#2E7D32"
+            app:cornerRadius="16dp"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Wellness Check-up 🌿"
+            app:titleTextColor="@color/primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- DYNAMIC SCORE CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="32dp">
+
+                    <TextView
+                        android:id="@+id/tvLiveScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="64sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvScoreStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let's Begin Your Journey! ✨"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SYMPTOMS DROPDOWN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1: Check Symptoms 🩺"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="2dp"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/dropdownHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="20dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Feeling anything unusual? Tap to select"
+                            android:textColor="@color/text_secondary"/>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/arrow_down_float"
+                            app:tint="@color/primary"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutSymptoms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:visibility="gone">
+
+                        <CheckBox android:id="@+id/cbFatigue" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Fatigue / Low Energy 😴"/>
+                        <CheckBox android:id="@+id/cbHeadache" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Frequent Headaches 🤕"/>
+                        <CheckBox android:id="@+id/cbSleepDist" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sleep Disturbances 🌙"/>
+                        <CheckBox android:id="@+id/cbAnxiety" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Anxiety / Stress 😰"/>
+                        <CheckBox android:id="@+id/cbDigestion" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Poor Digestion 🤢"/>
+                        <CheckBox android:id="@+id/cbBloating" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bloating / Gas 💨"/>
+                        <CheckBox android:id="@+id/cbConstipation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Constipation 🚽"/>
+                        <CheckBox android:id="@+id/cbReflux" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Acid Reflux 🔥"/>
+                        <CheckBox android:id="@+id/cbJointPain" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Joint Pain 🦵"/>
+                        <CheckBox android:id="@+id/cbWeightGain" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Weight Gain ⚖️"/>
+                        <CheckBox android:id="@+id/cbIllness" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Frequent Illness 🤒"/>
+                        <CheckBox android:id="@+id/cbFocus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lack of Focus 🧠"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- LIFESTYLE SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 2: Lifestyle Habits 🚶"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="2dp"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- WATER -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="💧 Water Intake (Liters)" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:id="@+id/tvWaterVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 L" android:textColor="@color/primary" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderWater"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="5"
+                        android:stepSize="0.1"
+                        app:trackColorActive="@color/primary"/>
+
+                    <!-- ACTIVITY -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="16dp" android:layout_marginBottom="4dp">
+                        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🏃 Physical Activity (Min)" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:id="@+id/tvActivityVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Min" android:textColor="@color/primary" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="90"
+                        android:stepSize="5"
+                        app:trackColorActive="@color/primary"/>
+
+                    <!-- SLEEP -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="16dp" android:layout_marginBottom="4dp">
+                        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="😴 Sleep Duration (Hrs)" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:id="@+id/tvSleepVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 Hrs" android:textColor="@color/primary" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderSleep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="12"
+                        android:stepSize="0.5"
+                        app:trackColorActive="@color/primary"/>
+
+                    <!-- FRUITS/VEGGIES DROPDOWN -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="🍎 Fruits &amp; Veggies"
+                        app:boxCornerRadiusBottomEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:startIconDrawable="@android:drawable/ic_menu_today">
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdownDiet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:text="0 Servings" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- JUNK FOOD DROPDOWN -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="🍟 Junk Food / Caffeine"
+                        app:boxCornerRadiusBottomEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:startIconDrawable="@android:drawable/ic_menu_view">
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdownJunk"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:text="0-2 times/day" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- STRESS -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="20dp" android:layout_marginBottom="4dp">
+                        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🧘 Stress Level (0-10)" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:id="@+id/tvStressVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/primary" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderStress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="10"
+                        android:stepSize="1"
+                        app:trackColorActive="@color/primary"/>
+
+                    <!-- BMI -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCalculateBMI"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="24dp"
+                        android:text="⚖️ Calculate BMI"
+                        app:cornerRadius="16dp"/>
+
+                    <TextView
+                        android:id="@+id/tvBMIResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="BMI Status: Not Calculated"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/text_secondary"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAnalyze"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Analyze My Health 🚀"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:layout_marginBottom="40dp"
+                app:elevation="8dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

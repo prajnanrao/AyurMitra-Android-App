@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Health Assessment"
+            app:titleTextColor="@color/primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- LIVE SCORE CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="32dp">
+
+                    <TextView
+                        android:id="@+id/tvLiveScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="72sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.9"
+                        android:text="Current Health Score"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="3dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="#40FFFFFF" />
+
+                    <TextView
+                        android:id="@+id/tvScoreStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let's Begin"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SECTION 1: SYMPTOMS (DROPDOWN) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Step 1: Select Symptoms 🩺"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:boxCornerRadiusBottomEnd="24dp"
+                        app:boxCornerRadiusBottomStart="24dp"
+                        app:boxCornerRadiusTopEnd="24dp"
+                        app:boxCornerRadiusTopStart="24dp">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdownSymptoms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:padding="20dp"
+                            android:text="Tap to select symptoms" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Hidden container for selected symptoms (Optional, can show as chips later) -->
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:visibility="gone" />
+
+                    <!-- Keep hidden checkboxes for logic compatibility -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone">
+                        <CheckBox android:id="@+id/cbFatigue" />
+                        <CheckBox android:id="@+id/cbHeadache" />
+                        <CheckBox android:id="@+id/cbSleepDist" />
+                        <CheckBox android:id="@+id/cbAnxiety" />
+                        <CheckBox android:id="@+id/cbDigestion" />
+                        <CheckBox android:id="@+id/cbBloating" />
+                        <CheckBox android:id="@+id/cbConstipation" />
+                        <CheckBox android:id="@+id/cbReflux" />
+                        <CheckBox android:id="@+id/cbJointPain" />
+                        <CheckBox android:id="@+id/cbWeightGain" />
+                        <CheckBox android:id="@+id/cbIllness" />
+                        <CheckBox android:id="@+id/cbFocus" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SECTION 2: LIFESTYLE -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#0D4CAF50"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Step 2: Lifestyle Bonus 🌟"
+                            android:textColor="@color/primary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EEEEEE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="24dp">
+
+                        <!-- WATER -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="💧 Daily Water Intake" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:id="@+id/tvWaterVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 L" android:textColor="@color/primary" android:textStyle="bold"/>
+                        </LinearLayout>
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderWater"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="5"
+                            android:stepSize="0.1"
+                            app:labelBehavior="gone"
+                            app:thumbColor="@color/primary"
+                            app:trackColorActive="@color/primary"/>
+
+                        <!-- ACTIVITY -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🏃 Physical Activity" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:id="@+id/tvActivityVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Min" android:textColor="@color/primary" android:textStyle="bold"/>
+                        </LinearLayout>
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderActivity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="90"
+                            android:stepSize="5"
+                            app:labelBehavior="gone"
+                            app:thumbColor="@color/primary"
+                            app:trackColorActive="@color/primary"/>
+
+                        <!-- SLEEP -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="😴 Sleep Duration" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:id="@+id/tvSleepVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Hrs" android:textColor="@color/primary" android:textStyle="bold"/>
+                        </LinearLayout>
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderSleep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="12"
+                            android:stepSize="0.5"
+                            app:labelBehavior="gone"
+                            app:thumbColor="@color/primary"
+                            app:trackColorActive="@color/primary"/>
+
+                        <!-- FRUITS & VEGGIES -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:hint="🍎 Fruits &amp; Veggies"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:startIconDrawable="@android:drawable/ic_menu_today">
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownDiet"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:text="0 Servings" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- JUNK FOOD -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:hint="🍟 Junk Food / Caffeine"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:startIconDrawable="@android:drawable/ic_menu_view">
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdownJunk"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:text="0-2 times/week" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- STRESS -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="🧘 Daily Stress Level" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:id="@+id/tvStressVal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:textColor="@color/primary" android:textStyle="bold"/>
+                        </LinearLayout>
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/sliderStress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="1"
+                            android:valueTo="10"
+                            android:stepSize="1"
+                            app:labelBehavior="gone"
+                            app:thumbColor="@color/primary"
+                            app:trackColorActive="@color/primary"/>
+
+                        <!-- BMI -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCalculateBMI"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="24dp"
+                            android:text="⚖️ Calculate BMI"
+                            app:cornerRadius="16dp"
+                            app:icon="@android:drawable/ic_menu_add" />
+
+                        <TextView
+                            android:id="@+id/tvBMIResult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="BMI Status: Not Calculated"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAnalyze"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="24dp"
+                android:text="Analyze My Health"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="24dp"
+                app:elevation="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReset"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reset Assessment"
+                android:textColor="@color/error"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
